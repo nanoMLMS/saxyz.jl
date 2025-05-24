@@ -1,4 +1,4 @@
-#Units used are : eV, Angstrom, Angstrom^-1
+#Units used are : KeV, Angstrom, Angstrom^-1
 # 1 A-1 = 10 nm^-1
 
 module saxyz
