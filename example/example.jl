@@ -11,27 +11,26 @@ end
 
 const f_res::ComplexF64 = saxyz.f_resonant(1.0,form_data)
 
-"""
-You can plot the form factor as a function of q
-"""
+
+#You can plot the form factor as a function of q
 open("form_factor.dat","w") do file
 	for q in 0:0.01:10
 		print(file,q)
 		print(file," ")
-		println(file,f_thomson(q,"Cu"))
+		println(file,saxyz.f_thomson(q,"Cu"))
 	end
 end
 
 
 println("Copper xray atomic form factor at 1 KeV:",f_res)
 filein="particle.xyz"
-atoms=utils.read_xyz(filein)
-atoms = [at - utils.r_zero(atoms) for at in atoms]
+atoms=saxyz.utils.read_xyz(filein)
+atoms = [at - saxyz.utils.r_zero(atoms) for at in atoms]
 fileout="output.dat"
 types = ["Cu" for i=1:length(atoms)]
 open(fileout,"w") do file
 	for q in logrange(2e-3,2,500)
-		iq= I_q(q,atoms,types,f_res)
+		iq= saxyz.I_q(q,atoms,types,f_res)
 		print(file,q)
 		print(file," ")
 		println(file,iq)
