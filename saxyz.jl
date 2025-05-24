@@ -1,9 +1,15 @@
 #Units used are : eV, Angstrom, Angstrom^-1
 # 1 A-1 = 10 nm^-1
 
+module saxyz
+
+
 include("cm_coeffs.jl")
 include("utils.jl")
 
+using .utils
+
+export hbar_c, I_q, f_thomson , f_resonant
 
 const hbar_c::Float64 = 2. # KeV/Angstrom 
 #To convert q in energies use e = hbar_c*q
@@ -57,4 +63,4 @@ function f_resonant(e::Float64, form_list::Vector{Vector{Float64}})::ComplexF64
 	return (fmin+fmax)/2.0
 end
 	
-
+end #module
