@@ -25,3 +25,7 @@ The momentum dependent contribution is written using the Cromer-Mann parametriza
 $$ f(q) = \sum_{i=1}^{4} a_i \exp\left(-b_i \left( \frac{q}{4\pi} \right)^2 \right) + c $$
 
 Where the a,b and c are empirical parameters.
+
+## Notes
+
+Units used are : eV, Angstrom, Angstrom^-1
