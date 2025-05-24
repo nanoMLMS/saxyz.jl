@@ -17,7 +17,7 @@ The atomic form factors can be written as:
 $$ f(q,E) = f(q) + f_1(E) + if_2(E) $$
 
 They contain :
-1. A part dependent on transferred momentum q
+1. A part dependent on transferred momentum q , deriving from _Thomson scattering_
 2. A part dependent on the energy of the incoming X-ray , or _resonant_ part
 
 The momentum dependent contribution is written using the Cromer-Mann parametrization:
