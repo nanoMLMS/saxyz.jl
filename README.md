@@ -28,4 +28,4 @@ Where the a,b and c are empirical parameters.
 
 ## Notes
 
-Units used are : KeV for energies , Angstrom for distances , Angstrom$^{-1}$ for momenta. 
+Units used are : KeV for energies , Angstrom for distances , Angstrom <sup>-1</sup> for momenta. 
