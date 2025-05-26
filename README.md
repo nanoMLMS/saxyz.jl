@@ -37,7 +37,13 @@ To call the script from everywhere, include the path to the saxyz-jl in in PATH:
 ```bash
 export PATH="/PATH/TO/SAXYZ-JL:$PATH"
 ```
+## License
+
+This code is released under an Apache-2.0 license. 
+Please acknowledge nanoMLMS @ University of Milan if you use this code in your work.
 
 ## Notes
 
 Units used are : KeV for energies , Angstrom for distances , Angstrom <sup>-1</sup> for momenta. 
+
+## References
