@@ -1,5 +1,5 @@
 # saxyz.jl
-A Small Angle X-Ray Scattering (SAXS) calculator from coordinate files such as XYZ.
+A Small Angle X-Ray Scattering (SAXS) calculator from coordinate files such as XYZ in Julia.
 
 ## Introduction
 This Julia package is built to compute the X-ray scattering response of atomic clusters at small angles (SAXS). To do so, the Debye formula is utilized:
@@ -25,6 +25,18 @@ The momentum dependent contribution is written using the Cromer-Mann parametriza
 $$ f(q) = \sum_{i=1}^{4} a_i \exp\left(-b_i \left( \frac{q}{4\pi} \right)^2 \right) + c $$
 
 Where the a,b and c are empirical parameters.
+
+## Installation
+
+At the moment the calculator is just a script - not a proper Julia package. To use it in your scripts you will have to run
+
+```Julia
+include("PATH/TO/SAXYZ-JL/saxyz.jl")
+```
+To call the script from everywhere, include the path to the saxyz-jl in in PATH:
+```bash
+export PATH="/PATH/TO/SAXYZ-JL:$PATH"
+```
 
 ## Notes
 
