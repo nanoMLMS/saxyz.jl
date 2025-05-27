@@ -37,6 +37,11 @@ To call the script from everywhere, include the path to the saxyz-jl in in PATH:
 ```bash
 export PATH="/PATH/TO/SAXYZ-JL:$PATH"
 ```
+
+## Fitting utilities
+
+A python library to fit spectra is provided including Porod's and Guinier's laws.
+
 ## License
 
 This code is released under an MIT license. 
