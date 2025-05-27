@@ -21,8 +21,6 @@ open("form_factor.dat","w") do file
 	end
 end
 
-
-println("Copper xray atomic form factor at 1 KeV:",f_res)
 filein="particle.xyz"
 atoms,types=saxyz.utils.read_xyz(filein)
 atoms = [at - saxyz.utils.r_zero(atoms) for at in atoms]
