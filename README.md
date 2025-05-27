@@ -39,7 +39,7 @@ export PATH="/PATH/TO/SAXYZ-JL:$PATH"
 ```
 ## License
 
-This code is released under an Apache-2.0 license. 
+This code is released under an MIT license. 
 Please acknowledge nanoMLMS @ University of Milan if you use this code in your work.
 
 ## Notes
