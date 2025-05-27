@@ -11,7 +11,7 @@ function norm(vec::Vector{Float64})::Float64
 	return sqrt(norm)
 end
 
-"Return coordinates from a xyz/extxyz file"
+"Return coordinates and atomic species from a xyz/extxyz file"
 function read_xyz(filename::String)
 	coords=Vector{Vector{Float64}}(undef,0)
 	species::Vector{String}=[]
@@ -28,7 +28,7 @@ function read_xyz(filename::String)
 			idx+=1
 		end
 	end
-	return coords
+	return coords,species
 end
 
 "Finds average position"
