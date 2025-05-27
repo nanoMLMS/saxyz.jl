@@ -24,10 +24,9 @@ end
 
 println("Copper xray atomic form factor at 1 KeV:",f_res)
 filein="particle.xyz"
-atoms=saxyz.utils.read_xyz(filein)
+atoms,types=saxyz.utils.read_xyz(filein)
 atoms = [at - saxyz.utils.r_zero(atoms) for at in atoms]
 fileout="output.dat"
-types = ["Cu" for i=1:length(atoms)]
 open(fileout,"w") do file
 	for q in logrange(2e-3,2,500)
 		iq= saxyz.I_q(q,atoms,types,f_res)
