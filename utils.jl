@@ -14,14 +14,16 @@ end
 "Return coordinates from a xyz/extxyz file"
 function read_xyz(filename::String)
 	coords=Vector{Vector{Float64}}(undef,0)
+	species::Vector{String}=[]
 	nat::Int64=0
 	idx=1
 	open(filename) do file
 		for line in eachline(file)
 			if idx==1 
 				nat=parse(Int64,line)
-			elseif (idx > 2 & idx <= 2+nat) 
-				push!(coords,[parse(Float64,x) for x in split(line)[2:4]])
+			elseif (idx > 2 & idx <= 2+nat)
+				push!(species,split(line)[1])
+				push!(coords ,[parse(Float64,x) for x in split(line)[2:4]])
 			end
 			idx+=1
 		end
