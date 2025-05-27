@@ -14,17 +14,17 @@ export hbar_c, I_q, f_thomson , f_resonant
 const hbar_c::Float64 = 2. # KeV/Angstrom 
 #To convert q in energies use e = hbar_c*q
 
-function I_q(q::Float64 , coords::Vector{Vector{Float64}}, types::Vector{String}, f_res::ComplexF64 )::Float64
+function I_q(q::Float64 , coords::Vector{Vector{Float64}}, types::Vector{String}, f_res::Dict{String,ComplexF64} )::Float64
 	nat=length(coords)
 	iq::Float64=0.0
 	for i in 1:nat
 		for j in 1:nat
 			rij = utils.norm(coords[i]-coords[j])
-			fi::ComplexF64 = f_thomson(q,types[i]) + f_res
+			fi::ComplexF64 = f_thomson(q,types[i]) + f_res[types[i]]
 			if types[i] == types[j]
 				fj=fi
 			else
-				fj::ComplexF64 = f_thomson(q,types[j]) + f_res
+				fj::ComplexF64 = f_thomson(q,types[j]) + f_res[types[j]]
 			end
 			iq+=fi*conj(fj)*sinc(q*rij/pi)
 		end
