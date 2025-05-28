@@ -4,6 +4,7 @@ A Small Angle X-Ray Scattering (SAXS) calculator from coordinate files such as X
 <div align="center">
 <img src="https://github.com/user-attachments/assets/6961ff04-197b-46ec-b7c4-b986c45dd06b" width="60%">
 </div>
+
 ## Introduction
 This Julia package is built to compute the X-ray scattering response of atomic clusters at small angles (SAXS). To do so, the Debye formula is utilized:
 
