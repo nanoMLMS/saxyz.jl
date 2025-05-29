@@ -2,7 +2,7 @@
 A Small Angle X-Ray Scattering (SAXS) calculator from coordinate files such as XYZ in Julia.
 
 <div align="center">
-<img src="https://github.com/user-attachments/assets/6961ff04-197b-46ec-b7c4-b986c45dd06b" width="60%">
+<img src="https://github.com/user-attachments/assets/256df5a0-6134-4ec2-ac09-8d89f41757c6" width="60%">
 </div>
 
 ## Introduction
