@@ -8,7 +8,7 @@ A Small Angle X-Ray Scattering (SAXS) calculator from coordinate files such as X
 ## Introduction
 This Julia package is built to compute the X-ray scattering response of atomic clusters at small angles (SAXS). To do so, the Debye formula is utilized:
 
-$$  I(q) = \frac{1}{N} \sum_i^N \sum_j^N f_i(q,E) f_j^*(q,E) \frac{\text{sin}(q r_{ij})}{q r_{ij}} $$ 
+$$  I(q) = \sum_i^N \sum_j^N f_i(q,E) f_j^*(q,E) \frac{\text{sin}(q r_{ij})}{q r_{ij}} $$ 
 
 where f are atomic form factors, q is the magnitude of transferred momentum and $r_{ij}$ is the distance of atom $i$ to atom $j$. 
 

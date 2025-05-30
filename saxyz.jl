@@ -29,7 +29,7 @@ function I_q(q::Float64 , coords::Vector{Vector{Float64}}, types::Vector{String}
 			iq+=fi*conj(fj)*sinc(q*rij/pi)
 		end
 	end
-	return iq/nat
+	return iq
 end
 
 function f_thomson(q::Float64, type::String)::Float64
