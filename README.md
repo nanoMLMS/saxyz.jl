@@ -32,14 +32,22 @@ Where the a,b and c are empirical parameters.
 
 ## Installation
 
-At the moment the calculator is just a script - not a proper Julia package. To use it in your scripts you will have to run
+saxyz.jl is now packaged as a Julia package. You can now run it by:
 
 ```Julia
-include("PATH/TO/SAXYZ-JL/saxyz.jl")
+using Pkg
+Pkg.activate("PATH/TO/SAXYZ-JL/saxyz.jl")
 ```
-To call the script from everywhere, include the path to the saxyz-jl in in PATH:
+To import the calcolator as a regular package, you have to include the saxyz.jl folder to the 
+JULIA_LOAD_PATH environment variable.
+
 ```bash
-export PATH="/PATH/TO/SAXYZ-JL:$PATH"
+export JULIA_LOAD_PATH="/PATH/TO/saxyz.jl:$JULIA_LOAD_PATH"
+```
+Then, in Julia scripts run
+
+```Julia
+using saxyz
 ```
 
 ## Fitting utilities
