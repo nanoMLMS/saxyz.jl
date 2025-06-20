@@ -1,0 +1,4 @@
+name = "saxyz"
+uuid = "19717177-b176-42c2-934c-855929a4a677"
+authors = ["Davide Alimonti - nanoMLMS <davide.alimonti@unimi.it>"]
+version = "0.1.0-alpha"

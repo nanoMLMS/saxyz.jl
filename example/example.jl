@@ -1,5 +1,9 @@
+using Pkg
+
+Pkg.activate("../saxyz")
+
 using Printf
-include("../saxyz.jl")
+using saxyz
 
 Cu_form_data=Vector{Vector{Float64}}(undef,0)
 open("Cu_scattering.dat") do file
