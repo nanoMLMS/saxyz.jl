@@ -36,7 +36,7 @@ saxyz.jl is now packaged as a Julia package. You can now run it by:
 
 ```Julia
 using Pkg
-Pkg.activate("PATH/TO/SAXYZ-JL/saxyz.jl")
+Pkg.activate("PATH/TO/SAXYZ-JL/saxyz.jl/saxyz")
 ```
 To import the calcolator as a regular package, you have to include the saxyz.jl folder to the 
 JULIA_LOAD_PATH environment variable.
