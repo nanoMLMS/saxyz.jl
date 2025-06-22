@@ -50,6 +50,17 @@ Then, in Julia scripts run
 using saxyz
 ```
 
+## Parallelization
+
+saxyz.jl can be multithreaded by splitting the calculations for the required 
+exchanged momenta in chunks.
+Given an arrays $qs$ of momenta magnitude, run:
+```Julia
+saxyz.parallel_I_q_1D(qs,atoms,types,f_res)
+```
+
+It will use all threads available to the Julia session.
+
 ## Fitting utilities
 
 A python library to fit spectra is provided including Porod's and Guinier's laws.

@@ -8,8 +8,13 @@ include("cm_coeffs.jl")
 include("utils.jl")
 
 using .utils
+using Base.Threads
 
-export hbar_c, I_q, f_thomson , f_resonant
+export hbar_c
+export I_q
+export f_thomson 
+export f_resonant
+export parallel_I_q_1D
 
 const hbar_c::Float64 = 2. # KeV/Angstrom 
 #To convert q in energies use e = hbar_c*q
@@ -62,5 +67,30 @@ function f_resonant(e::Float64, form_list::Vector{Vector{Float64}})::ComplexF64
 	end
 	return (fmin+fmax)/2.0
 end
-	
+
+function parallel_I_q_1D(qs::Vector{Float64} , coords::Vector{Vector{Float64}}, types::Vector{String}, f_res::Dict{String,ComplexF64})
+	nthreads=Threads.nthreads()
+	println("Detected $nthreads OMP threads")
+	chunks = utils.make_chunks1D(qs,nthreads)
+	tasks = []
+	I_qs  = Vector{Vector{Float64}}[]
+	for t in 1:nthreads
+		push!(tasks,@spawn begin
+			      sleep(1)
+			      thread_I_qs=[]
+			      thread_qs=chunks[t]
+			      println("Thread $(threadid()) is doing chunk nr $t")
+			      for q in thread_qs
+				      push!(thread_I_qs,I_q(q,coords,types,f_res))
+			      end
+			      return thread_I_qs
+		      end
+		     )
+	end
+	wait.(tasks)
+	results=fetch.(tasks)
+	I_qs = vcat(results...)
+	return I_qs
+end
+
 end #module

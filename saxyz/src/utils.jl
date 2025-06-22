@@ -1,6 +1,6 @@
 module utils
 
-export  norm,read_xyz,com
+export  norm,read_xyz,com,make_chunks1D
 
 "Compute norm"
 function norm(vec::Vector{Float64})::Float64
@@ -40,4 +40,19 @@ function r_zero(coords::Vector{Vector{Float64}})
 	return Vector(com/length(coords))
 end
 
+"Split a 1D vector in nchunks continous chunks"
+function make_chunks1D(qs::Vector{Float64} , nchunks::Int64)
+	chunks::Vector{Vector{Float64}}=[ ]
+	println(chunks)
+	#Get size of chunks
+	chunk_size = div(length(qs),nchunks)
+	println(chunk_size)
+	for c in 1:nchunks-1
+		println(c)
+		push!(chunks,qs[(c-1)*chunk_size + 1: c*chunk_size ])
+	end
+	#Last chunks takes everything remaining
+	push!(chunks,qs[(nchunks-1)*chunk_size + 1:end])
+	return chunks
+end
 end #module
