@@ -24,7 +24,7 @@ function I_q(q::Float64 , coords::Vector{Vector{Float64}}, types::Vector{String}
 	iq::Float64=0.0
 	for i in 1:nat
 		fi::ComplexF64 = f_thomson(q,types[i]) + f_res[types[i]]
-		iq +=2*fi*conj(fi)  #self-scattering term
+		iq +=fi*conj(fi)  #self-scattering term
 		for j in i+1:nat
 			rij = utils.norm(coords[i]-coords[j])
 			if types[i] == types[j]
