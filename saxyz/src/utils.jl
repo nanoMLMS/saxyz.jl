@@ -1,6 +1,7 @@
 module utils
 
 export  norm,read_xyz,com,make_chunks1D
+export  read_data
 
 "Compute norm"
 function norm(vec::Vector{Float64})::Float64
@@ -55,4 +56,26 @@ function make_chunks1D(qs::Vector{Float64} , nchunks::Int64)
 	push!(chunks,qs[(nchunks-1)*chunk_size + 1:end])
 	return chunks
 end
+
+"Read float data in columns from a text file"
+function read_data(filename::String)
+	idx::Int64=1
+	data= []
+        open(filename) do file
+		for line in eachline(file)
+			if startswith(strip(line),'#') # skip comment
+				continue
+			elseif idx == 1
+				data= [Vector{Float64}() for _ in 1:length(split(line))]
+			end
+			for (x,d) in zip(split(line),data)
+			push!(d,parse(Float64,x))
+			end
+			idx+=1
+			end
+
+	end
+	return data
+end
+
 end #module

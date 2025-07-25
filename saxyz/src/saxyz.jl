@@ -15,6 +15,7 @@ export I_q
 export f_thomson 
 export f_resonant
 export parallel_I_q_1D
+export I_q_from_pddf
 
 const hbar_c::Float64 = 2. # KeV/Angstrom 
 #To convert q in energies use e = hbar_c*q
@@ -34,6 +35,23 @@ function I_q(q::Float64 , coords::Vector{Vector{Float64}}, types::Vector{String}
 			end
 			iq+=2*real(fi*conj(fj))*sinc(q*rij/pi)
 		end
+	end
+	return iq
+end
+
+function I_q_from_pddf(q::Float64 , distances::Vector{Float64}, counts::Vector{Float64} , types::Vector{String}, f_res::Dict{String,ComplexF64}, natoms::Int64=0)
+	@assert length(distances) == length(counts)
+	iq::Float64=0.0
+	fi::ComplexF64 = f_thomson(q,types[1]) + f_res[types[1]]
+	if length(types)== 1
+		fj=fi
+		iq += natoms * (real(fi)^2 + imag(fi)^2) # Volume term
+	else
+		fj::ComplexF64 = f_thomson(q,types[2]) + f_res[types[2]]
+	end
+	fcouple = 2 * real(fi*conj(fj))
+	for (r,p) in zip(distances,counts)
+		iq += p  * fcouple * sinc(q*r/pi)
 	end
 	return iq
 end

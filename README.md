@@ -14,6 +14,11 @@ where f are atomic form factors, q is the magnitude of transferred momentum and 
 
 Functions to parse xyz/extxyz files are provided, yet at its core the code only requires atomic coordinates and the corresponding chemical species - you can use any other code to obtain them and feed those to the desired functions.
 
+For large systems, and statistical ensembles , it is more useful to evaluate Debye's formula starting from the Pair Distance Distribution Function (PDDF) which indicates , on average, how many atoms are at a certain distance. Debye's formula becomes:
+$$ I(q) = \sum_{(i,j)\in C}\int_0^R f_i(q,E) f_j^*(q,E) p^{(2)}_{ij}(r) \frac{\text{sin}(q r)}{q r} dr  $$
+
+where $p^{(2)}_{ij}(r) $ is the PDDF for chemical species $i,j$, and the sum runs over all combinations of atomic species. 
+
 ## Model
 
 The atomic form factors can be written as:
